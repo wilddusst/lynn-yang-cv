@@ -166,7 +166,7 @@ Responsible for project management and marketing planning, with additional invol
 
 ---
 
-### Contact
+### Contact Me
 **E-mail**: [jsy02053@gmail.com](mailto:jsy02053@gmail.com)
 
 <div style="text-align:center;">
