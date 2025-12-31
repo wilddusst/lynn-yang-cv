@@ -200,3 +200,36 @@ pre{
   box-shadow: 0 12px 34px rgba(27, 26, 23, 0.08);
   padding: 2rem;
 }
+
+/* =========================================================
+   Header Avatar (centered)
+   ========================================================= */
+
+.header-avatar{
+  display: flex;
+  justify-content: center;
+  margin: 1.2rem 0 0.6rem 0;
+}
+
+.header-avatar img{
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+
+  /* 邊框與陰影：暖灰白系，配合你的主色 */
+  border: 3px solid rgba(246,241,233,0.85);
+  box-shadow:
+    0 10px 28px rgba(27,26,23,0.18),
+    0 0 0 6px rgba(246,241,233,0.35);
+
+  background-color: rgba(246,241,233,0.9);
+}
+
+/* 手機微調 */
+@media (max-width: 480px){
+  .header-avatar img{
+    width: 104px;
+    height: 104px;
+  }
+}
