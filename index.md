@@ -3,8 +3,8 @@ layout: default
 title: Your Name
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/style.scss' | relative_url }}">
-<script defer src="{{ '/assets/js/scroll-gradient.js' | relative_url }}"></script>
+<!-- 載入滾動漸層 JS（子站安全寫法） -->
+<script defer src="{{ '/assets/js/scroll-gradient.js?v=1' | relative_url }}"></script>
 
 # Your Name
 你的職稱 / 目標職位
