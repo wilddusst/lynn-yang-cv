@@ -12,8 +12,8 @@
     <header class="page-header" role="banner">
 
       {% if site.avatar %}
-      <div class="header-avatar">
-        <img src="{{ site.avatar | relative_url }}" alt="Avatar">
+      <div class="header-avatar no-open">
+        <img src="{{ site.avatar | relative_url }}" alt="Avatar" draggable="false">
       </div>
       {% endif %}
 
