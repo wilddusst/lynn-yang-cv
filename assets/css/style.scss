@@ -264,3 +264,9 @@ pre{
   user-select: none;
   -webkit-user-drag: none;
 }
+
+/* Hide header text (title & tagline) */
+.page-header .project-name,
+.page-header .project-tagline {
+  display: none;
+}
