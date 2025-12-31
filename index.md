@@ -1,9 +1,11 @@
 ---
 layout: default
-title: 你的名字
+title: Your Name
 ---
 
-# 你的名字
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+# Your Name
 ...
 
 # 你的名字
