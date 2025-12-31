@@ -212,8 +212,8 @@ pre{
 }
 
 .header-avatar img{
-  width: 200px;
-  height: 200px;
+  width: 168px;
+  height: 168px;
   object-fit: cover;
   border-radius: 50%;
 
@@ -226,11 +226,34 @@ pre{
   background-color: rgba(246,241,233,0.9);
 }
 
-/* 先註解，確認尺寸真的有變
-@media (max-width: 480px){
+/* =========================================================
+   Mobile tuning (keep it minimal)
+   ========================================================= */
+@media (max-width: 600px){
+
+  /* 照片縮小，但保留存在感 */
   .header-avatar img{
-    width: 112px;
-    height: 112px;
+    width: 128px;
+    height: 128px;
+  }
+
+  /* Header 高度一起縮，避免佔滿畫面 */
+  .page-header{
+    padding-top: 2.2rem;
+    padding-bottom: 2.2rem;
+  }
+
+  /* 照片與文字間距收一點 */
+  .header-avatar{
+    margin: 1.4rem 0 0.8rem 0;
+  }
+
+  /* 文字微縮，避免換行太多 */
+  .project-name{
+    font-size: 1.9rem;
+  }
+
+  .project-tagline{
+    font-size: 1.05rem;
   }
 }
-*/
