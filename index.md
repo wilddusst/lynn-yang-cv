@@ -164,4 +164,6 @@ title: 中文 CV
 ### 如何聯繫
 **E-mail**：[jsy02053@gmail.com](mailto:jsy02053@gmail.com)
 
-`© 2026 Lynn Yang`
+<div style="text-align:center;">
+  © 2026 Lynn Yang
+</div>
