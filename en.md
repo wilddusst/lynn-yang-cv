@@ -29,8 +29,6 @@ permalink: /en/
   jsy02053@gmail.com
 </a>
 
-<br>
-
 <a href="https://www.linkedin.com/in/%E6%B7%91%E7%90%B3-%E6%A5%8A-83b297212/"
    target="_blank"
    rel="noopener noreferrer">
