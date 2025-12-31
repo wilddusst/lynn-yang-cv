@@ -4,226 +4,193 @@
 @import "{{ site.theme }}";
 
 /* =========================================================
-   Palette (low-saturation, brighter blue family + airy warm gray background)
-   - Bigger gradient contrast than previous version
+   Cayman Custom Theme (Low-sat Bright Blues + Warm Gray Background)
+   - Header: bigger gradient contrast, NO texture
+   - Background: bigger gradient contrast
+   - Typography / dividers / links: match palette, remove green
+   - Hide GitHub button
    ========================================================= */
+
+/* ---------- Palette & scroll driver ---------- */
 :root{
-  /* Header gradient (bigger contrast) */
-  --h1:#e9f2ff;  /* very light, airy blue */
-  --h2:#b7d4ff;  /* light blue */
-  --h3:#6fa3e6;  /* mid soft blue */
-  --h4:#1f4f8f;  /* deep desaturated blue */
-
-  /* Background gradient (bigger contrast but still near-white) */
-  --b1:#ffffff;  /* pure white highlight */
-  --b2:#f5f1e8;  /* warm off-white beige */
-  --b3:#e7ecf5;  /* cool pale gray-blue */
-  --b4:#dfe5ef;  /* deeper airy gray */
-
-  /* Text / lines that match the scheme */
-  --ink-1: rgba(15, 23, 42, 0.88); /* headings */
-  --ink-2: rgba(15, 23, 42, 0.74); /* body */
-  --ink-3: rgba(15, 23, 42, 0.58); /* secondary */
-  --rule:  rgba(31, 79, 143, 0.18);/* separators */
-  --link:  rgba(31, 79, 143, 0.86);
-  --link-h:rgba(31, 79, 143, 1.00);
-
   /* Scroll driver (0~1) */
   --s: 0;
+
+  /* Header blues (low saturation, brighter, bigger contrast) */
+  --hA: #eaf2ff;   /* very light blue */
+  --hB: #c9dcff;   /* light blue */
+  --hC: #86aef5;   /* brighter soft blue (contrast jump) */
+  --hD: #3f6fd6;   /* deeper blue but not neon */
+
+  /* Background near-white warm/cool mix (bigger contrast) */
+  --bA: #ffffff;   /* pure white */
+  --bB: #f4f0e8;   /* warm off-white */
+  --bC: #e9eef7;   /* cool pale gray-blue */
+  --bD: #f7f8fb;   /* airy gray-white */
+
+  /* Text / UI colors tuned for palette */
+  --txt: rgba(15, 23, 42, 0.86);     /* slate-900-ish */
+  --txt2: rgba(15, 23, 42, 0.68);
+  --muted: rgba(15, 23, 42, 0.52);
+
+  --rule: rgba(63, 111, 214, 0.18);  /* divider line */
+  --rule2: rgba(15, 23, 42, 0.10);
+
+  --link: rgba(63, 111, 214, 0.92);  /* link blue */
+  --linkHover: rgba(49, 94, 198, 0.98);
+
+  --card: rgba(255,255,255,0.72);
+  --cardBorder: rgba(63, 111, 214, 0.10);
 }
 
-/* =========================================================
-   Background: gradient + uneven stops + scroll-driven shift
-   ========================================================= */
-html, body{
-  min-height: 100%;
-}
+/* ---------- Background: bigger-contrast gradient + scroll-driven ---------- */
+html, body{ min-height: 100%; }
 
 body{
-  color: var(--ink-2);
+  color: var(--txt);
 
-  /* A gentle blue bloom that moves slightly with scroll (subtle, not busy) */
+  /* Large soft wash to harmonize with header blues */
   background:
     radial-gradient(
-      1100px 700px at
-      calc(12% + (var(--s) * 18%))
-      calc(10% + (var(--s) * 14%)),
-      rgba(111,163,230,0.18),
-      rgba(111,163,230,0.00) 62%
+      1100px 650px at calc(18% + (var(--s) * 22%)) calc(12% + (var(--s) * 10%)),
+      rgba(63,111,214,0.16),
+      rgba(63,111,214,0.00) 62%
     ),
     radial-gradient(
-      900px 520px at
-      calc(88% - (var(--s) * 16%))
-      calc(18% + (var(--s) * 10%)),
-      rgba(183,212,255,0.16),
-      rgba(183,212,255,0.00) 60%
+      900px 520px at calc(82% - (var(--s) * 16%)) calc(88% - (var(--s) * 14%)),
+      rgba(134,174,245,0.14),
+      rgba(134,174,245,0.00) 64%
     ),
     linear-gradient(
       calc(160deg - (var(--s) * 28deg)),
-      var(--b1) 0%,
-      var(--b2) 19%,
-      var(--b3) 56%,
-      var(--b4) 100%
+      var(--bA) 0%,
+      var(--bB) 18%,
+      var(--bC) 62%,
+      var(--bD) 100%
     );
 
-  /* Keeps the gradient “sheet” stable while scrolling */
   background-attachment: fixed;
 }
 
-/* =========================================================
-   Header: higher-contrast gradient + soft texture (not busy) + scroll-driven shift
-   ========================================================= */
+/* ---------- Header: bigger-contrast gradient, NO texture, scroll-driven ---------- */
 .page-header{
   position: relative;
-  overflow: hidden;
-
-  /* Bigger contrast: light -> mid -> deep, uneven stops, angle shifts with scroll */
-  background-image:
-    linear-gradient(
-      calc(132deg + (var(--s) * 26deg)),
-      var(--h1) 0%,
-      var(--h2) 24%,
-      var(--h3) 52%,
-      var(--h4) 100%
-    ) !important;
-
   background-color: transparent !important;
+
+  /* Stronger contrast: bigger jump between stops + non-even distribution */
+  background-image: linear-gradient(
+    calc(140deg + (var(--s) * 22deg)),
+    var(--hA) 0%,
+    var(--hB) 24%,
+    var(--hC) 54%,
+    var(--hD) 100%
+  ) !important;
+
+  overflow: hidden;
 }
 
-/* Soft texture: one glow + one very restrained stripe noise */
-.page-header::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-
-  background:
-    radial-gradient(
-      900px 520px at
-      calc(22% + (var(--s) * 34%))
-      calc(18% + (var(--s) * 12%)),
-      rgba(255,255,255,0.62),
-      rgba(255,255,255,0.00) 60%
-    ),
-    repeating-linear-gradient(
-      110deg,
-      rgba(255,255,255,0.10) 0px,
-      rgba(255,255,255,0.10) 2px,
-      rgba(255,255,255,0.00) 10px,
-      rgba(255,255,255,0.00) 18px
-    );
-
-  mix-blend-mode: soft-light;
-  opacity: 0.38;
-}
-
-/* A subtle divider at the bottom of header */
+/* Subtle separation line at bottom of header */
 .page-header::after{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
-  box-shadow: inset 0 -1px 0 rgba(31,79,143,0.22);
+  box-shadow: inset 0 -1px 0 rgba(15,23,42,0.10);
 }
 
-/* =========================================================
-   Typography: headings, body, secondary texts
-   ========================================================= */
-h1, h2, h3, h4, h5, h6{
-  color: var(--ink-1);
-}
-
-p, li, blockquote{
-  color: var(--ink-2);
-}
-
-/* Cayman header text */
+/* ---------- Typography (remove theme green influence) ---------- */
 .project-name{
-  color: rgba(15,23,42,0.92) !important;
+  color: rgba(15,23,42,0.88) !important;
   text-shadow: 0 1px 0 rgba(255,255,255,0.55);
 }
 
 .project-tagline{
-  color: rgba(15,23,42,0.70) !important;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.45);
+  color: rgba(15,23,42,0.66) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.35);
 }
 
-/* Links should match the scheme */
-a{
-  color: var(--link);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
+/* Main content text colors */
+.main-content{
+  color: var(--txt);
 }
 
-a:hover{
-  color: var(--link-h);
+/* Headings */
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6{
+  color: rgba(15,23,42,0.90);
 }
 
-/* =========================================================
-   Rules / separators: match blue-gray scheme
-   ========================================================= */
-hr{
+/* Paragraphs / lists */
+.main-content p,
+.main-content li{
+  color: var(--txt);
+}
+
+/* Muted text / small notes */
+.main-content small,
+.main-content .text-muted{
+  color: var(--muted);
+}
+
+/* ---------- Dividers & borders ---------- */
+.main-content hr{
   border: 0;
   height: 1px;
   background: linear-gradient(
     90deg,
-    rgba(31,79,143,0.00) 0%,
-    var(--rule) 18%,
-    rgba(31,79,143,0.26) 50%,
-    var(--rule) 82%,
-    rgba(31,79,143,0.00) 100%
+    rgba(63,111,214,0.00) 0%,
+    var(--rule) 20%,
+    rgba(63,111,214,0.26) 50%,
+    var(--rule) 80%,
+    rgba(63,111,214,0.00) 100%
   );
+  margin: 2rem 0;
 }
 
-/* Add consistent separators inside markdown content */
-.main-content h2{
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid rgba(31,79,143,0.16);
+/* Tables / code blocks subtle border harmony */
+.main-content table{
+  border-color: var(--rule2);
+}
+.main-content pre,
+.main-content code{
+  border-color: var(--rule2);
 }
 
-/* =========================================================
-   Main content container: subtle card that harmonizes with background
-   ========================================================= */
+/* ---------- Links (no green) ---------- */
+a{
+  color: var(--link);
+  text-decoration-color: rgba(63,111,214,0.38);
+}
+a:hover,
+a:focus{
+  color: var(--linkHover);
+  text-decoration-color: rgba(49,94,198,0.62);
+}
+
+/* ---------- Optional: card-like content panel to match background (safe & clean) ---------- */
 .main-content{
-  background: rgba(255,255,255,0.66);
-  backdrop-filter: blur(7px);
-  border-radius: 16px;
-  box-shadow: 0 14px 34px rgba(15,23,42,0.07);
-  border: 1px solid rgba(31,79,143,0.10);
+  background: var(--card);
+  border: 1px solid var(--cardBorder);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
   padding: 2rem;
 }
 
-/* Code blocks should not fight the palette */
-code{
-  background: rgba(31,79,143,0.08);
-  color: rgba(15,23,42,0.86);
-  border-radius: 6px;
-  padding: 0.12em 0.35em;
-}
-
-pre code{
-  background: transparent;
-  padding: 0;
-}
-
-pre{
-  background: rgba(15,23,42,0.06);
-  border: 1px solid rgba(31,79,143,0.12);
-  border-radius: 12px;
-}
-
-/* =========================================================
-   Remove GitHub “buttons” area (Cayman default)
-   - This hides the button styled links like "View on GitHub"
-   ========================================================= */
-.btn,
-.btn-github,
-.btn.disabled,
-.page-header .btn{
+/* ---------- Remove Cayman "View on GitHub" button ---------- */
+/* Cayman commonly uses .btn; hide it so any auto-generated GitHub button disappears */
+.page-header .btn,
+.page-header a.btn,
+.page-header .btn.btn-github,
+.page-header a.btn.btn-github{
   display: none !important;
 }
 
-/* Sometimes Cayman wraps buttons in a container; hide spacing too */
-.page-header .project-name + .project-tagline + .btn{
+/* Also hide the default "View on GitHub" line if it appears in some Cayman setups */
+.page-header .project-name + .btn,
+.page-header .project-tagline + .btn{
   display: none !important;
 }
