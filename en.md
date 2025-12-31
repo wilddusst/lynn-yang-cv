@@ -171,4 +171,6 @@ Responsible for project management and marketing planning, with additional invol
 ### Contact
 **E-mail**: [jsy02053@gmail.com](mailto:jsy02053@gmail.com)
 
-`© 2026 Lynn Yang`
+<div style="text-align:center;">
+  © 2026 Lynn Yang
+</div>
