@@ -145,12 +145,36 @@ a:hover{
   color: var(--accent-hover);
 }
 
-/* =========================================================
-   Buttons: hide GitHub-style header buttons (if present)
-   Cayman often uses .btn in header for repo / downloads.
-   ========================================================= */
-.page-header .btn{
+/* 只隱藏 Cayman header 的預設按鈕，但保留語言切換按鈕 */
+.page-header .btn:not(.btn-lang){
   display: none !important;
+}
+
+/* 語言切換按鈕樣式（你原本暖黑灰白系可沿用） */
+.lang-switch{
+  margin: 0 0 1rem 0;
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.btn-lang{
+  display: inline-block !important;
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(27,26,23,.25);
+  background: rgba(246,241,233,.55);
+  color: rgba(27,26,23,.88) !important;
+  text-decoration: none;
+}
+
+.btn-lang:hover{
+  background: rgba(239,231,220,.75);
+}
+
+.btn-lang.active{
+  background: rgba(214,202,188,.75);
+  border-color: rgba(27,26,23,.28);
 }
 
 /* =========================================================
