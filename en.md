@@ -22,9 +22,20 @@ permalink: /en/
 **Personal Traits**  
 `#Analytical` `#HighEfficiency` `#FastLearner` `#DetailOriented` `#CalmAndRational` `#CrossFunctionalCommunication`
 
-**E-Mail**: [jsy02053@gmail.com](mailto:jsy02053@gmail.com)
+<strong>E-mail</strong>：
+<a href="mailto:jsy02053@gmail.com"
+   target="_blank"
+   rel="noopener noreferrer">
+  jsy02053@gmail.com
+</a>
 
-[**LinkedIn**](https://www.linkedin.com/in/%E6%B7%91%E7%90%B3-%E6%A5%8A-83b297212/)
+<br>
+
+<a href="https://www.linkedin.com/in/%E6%B7%91%E7%90%B3-%E6%A5%8A-83b297212/"
+   target="_blank"
+   rel="noopener noreferrer">
+  <strong>LinkedIn</strong>
+</a>
 
 ---
 
