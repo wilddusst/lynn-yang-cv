@@ -10,6 +10,10 @@ title: 中文 CV
   <a class="btn btn-lang" href="{{ '/en/' | relative_url }}">English</a>
 </div>
 
+<div class="header-avatar">
+  <img src="{{ '/assets/images/avatar.png' | relative_url }}" alt="Avatar">
+</div>
+
 # 你的名字
 你的職稱／目標職位
 
