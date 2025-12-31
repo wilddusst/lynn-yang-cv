@@ -11,6 +11,10 @@ permalink: /en/
   <a class="btn btn-lang active" href="{{ '/en/' | relative_url }}">English</a>
 </div>
 
+<div class="header-avatar">
+  <img src="{{ '/assets/images/avatar.png' | relative_url }}" alt="Avatar">
+</div>
+
 # Your Name
 Target Role / Title
 
