@@ -4,193 +4,175 @@
 @import "{{ site.theme }}";
 
 /* =========================================================
-   Cayman Custom Theme (Low-sat Bright Blues + Warm Gray Background)
-   - Header: bigger gradient contrast, NO texture
-   - Background: bigger gradient contrast
-   - Typography / dividers / links: match palette, remove green
-   - Hide GitHub button
+   Warm black/gray/white palette (NO pure black/white)
    ========================================================= */
-
-/* ---------- Palette & scroll driver ---------- */
 :root{
+  /* Warm “near-black” + warm grays */
+  --ink: #1b1a17;        /* warm near-black */
+  --ink-2: #2a2722;      /* warm charcoal */
+  --muted: #5b554d;      /* warm gray for secondary text */
+  --muted-2: #746d64;    /* lighter warm gray */
+  --paper: #f6f1e9;      /* warm near-white (not pure) */
+  --paper-2: #efe7dc;    /* slightly deeper warm */
+  --paper-3: #e6dccf;    /* warm beige-gray */
+  --line: #d2c7b9;       /* warm divider line */
+
+  /* Accent (subtle, warm, NOT green, not neon) */
+  --accent: #8b6f47;     /* warm taupe/bronze */
+  --accent-hover: #6f5636;
+
+  /* Header gradient (bigger contrast, warm grayscale) */
+  --h1: #f1e6d8;
+  --h2: #cdbfad;
+  --h3: #a99f92;
+  --h4: #6f6a64;
+
+  /* Background gradient (bigger contrast, warm grayscale) */
+  --b1: #f6f1e9;
+  --b2: #e9dfd2;
+  --b3: #d6cabc;
+  --b4: #c2b6a8;
+
   /* Scroll driver (0~1) */
   --s: 0;
-
-  /* Header blues (low saturation, brighter, bigger contrast) */
-  --hA: #eaf2ff;   /* very light blue */
-  --hB: #c9dcff;   /* light blue */
-  --hC: #86aef5;   /* brighter soft blue (contrast jump) */
-  --hD: #3f6fd6;   /* deeper blue but not neon */
-
-  /* Background near-white warm/cool mix (bigger contrast) */
-  --bA: #ffffff;   /* pure white */
-  --bB: #f4f0e8;   /* warm off-white */
-  --bC: #e9eef7;   /* cool pale gray-blue */
-  --bD: #f7f8fb;   /* airy gray-white */
-
-  /* Text / UI colors tuned for palette */
-  --txt: rgba(15, 23, 42, 0.86);     /* slate-900-ish */
-  --txt2: rgba(15, 23, 42, 0.68);
-  --muted: rgba(15, 23, 42, 0.52);
-
-  --rule: rgba(63, 111, 214, 0.18);  /* divider line */
-  --rule2: rgba(15, 23, 42, 0.10);
-
-  --link: rgba(63, 111, 214, 0.92);  /* link blue */
-  --linkHover: rgba(49, 94, 198, 0.98);
-
-  --card: rgba(255,255,255,0.72);
-  --cardBorder: rgba(63, 111, 214, 0.10);
 }
 
-/* ---------- Background: bigger-contrast gradient + scroll-driven ---------- */
-html, body{ min-height: 100%; }
+/* =========================================================
+   Background: larger gradient contrast + scroll-driven angle
+   ========================================================= */
+html, body{
+  min-height: 100%;
+}
 
 body{
-  color: var(--txt);
-
-  /* Large soft wash to harmonize with header blues */
+  color: var(--ink);
   background:
-    radial-gradient(
-      1100px 650px at calc(18% + (var(--s) * 22%)) calc(12% + (var(--s) * 10%)),
-      rgba(63,111,214,0.16),
-      rgba(63,111,214,0.00) 62%
-    ),
-    radial-gradient(
-      900px 520px at calc(82% - (var(--s) * 16%)) calc(88% - (var(--s) * 14%)),
-      rgba(134,174,245,0.14),
-      rgba(134,174,245,0.00) 64%
-    ),
     linear-gradient(
-      calc(160deg - (var(--s) * 28deg)),
-      var(--bA) 0%,
-      var(--bB) 18%,
-      var(--bC) 62%,
-      var(--bD) 100%
+      calc(150deg - (var(--s) * 30deg)),
+      var(--b1) 0%,
+      var(--b2) 18%,
+      var(--b3) 62%,
+      var(--b4) 100%
     );
-
   background-attachment: fixed;
 }
 
-/* ---------- Header: bigger-contrast gradient, NO texture, scroll-driven ---------- */
+/* =========================================================
+   Header: larger gradient contrast, NO texture
+   ========================================================= */
 .page-header{
   position: relative;
   background-color: transparent !important;
 
-  /* Stronger contrast: bigger jump between stops + non-even distribution */
-  background-image: linear-gradient(
-    calc(140deg + (var(--s) * 22deg)),
-    var(--hA) 0%,
-    var(--hB) 24%,
-    var(--hC) 54%,
-    var(--hD) 100%
-  ) !important;
+  background-image:
+    linear-gradient(
+      calc(140deg + (var(--s) * 22deg)),
+      var(--h1) 0%,
+      var(--h2) 24%,
+      var(--h3) 56%,
+      var(--h4) 100%
+    ) !important;
 
   overflow: hidden;
 }
 
-/* Subtle separation line at bottom of header */
-.page-header::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  box-shadow: inset 0 -1px 0 rgba(15,23,42,0.10);
+/* Remove Cayman’s original green-ish feel by normalizing header links/buttons */
+.page-header a{
+  color: rgba(27, 26, 23, 0.85) !important;
+  border-color: rgba(27, 26, 23, 0.25) !important;
 }
 
-/* ---------- Typography (remove theme green influence) ---------- */
+/* =========================================================
+   Typography: titles, taglines, content text (warm grayscale)
+   ========================================================= */
 .project-name{
-  color: rgba(15,23,42,0.88) !important;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.55);
+  color: rgba(27, 26, 23, 0.92) !important;
+  text-shadow: 0 1px 0 rgba(246, 241, 233, 0.55);
 }
 
 .project-tagline{
-  color: rgba(15,23,42,0.66) !important;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+  color: rgba(42, 39, 34, 0.70) !important;
+  text-shadow: 0 1px 0 rgba(246, 241, 233, 0.35);
 }
 
-/* Main content text colors */
 .main-content{
-  color: var(--txt);
+  color: var(--ink);
 }
 
-/* Headings */
+/* Headings in content */
 .main-content h1,
 .main-content h2,
 .main-content h3,
 .main-content h4,
 .main-content h5,
 .main-content h6{
-  color: rgba(15,23,42,0.90);
+  color: var(--ink-2);
 }
 
-/* Paragraphs / lists */
+/* Paragraph / list */
 .main-content p,
 .main-content li{
-  color: var(--txt);
+  color: var(--ink);
 }
 
-/* Muted text / small notes */
-.main-content small,
-.main-content .text-muted{
-  color: var(--muted);
-}
-
-/* ---------- Dividers & borders ---------- */
-.main-content hr{
+/* =========================================================
+   Dividers / borders (no green)
+   ========================================================= */
+hr{
   border: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    rgba(63,111,214,0.00) 0%,
-    var(--rule) 20%,
-    rgba(63,111,214,0.26) 50%,
-    var(--rule) 80%,
-    rgba(63,111,214,0.00) 100%
-  );
-  margin: 2rem 0;
+  border-top: 1px solid var(--line);
+  opacity: 1;
 }
 
-/* Tables / code blocks subtle border harmony */
-.main-content table{
-  border-color: var(--rule2);
-}
-.main-content pre,
-.main-content code{
-  border-color: var(--rule2);
+.main-content hr{
+  border-top: 1px solid var(--line);
 }
 
-/* ---------- Links (no green) ---------- */
+.main-content blockquote{
+  color: var(--muted);
+  border-left: 0.25rem solid var(--line);
+  background: rgba(239, 231, 220, 0.35);
+}
+
+/* =========================================================
+   Links (no green) – subtle warm accent
+   ========================================================= */
 a{
-  color: var(--link);
-  text-decoration-color: rgba(63,111,214,0.38);
-}
-a:hover,
-a:focus{
-  color: var(--linkHover);
-  text-decoration-color: rgba(49,94,198,0.62);
+  color: var(--accent);
 }
 
-/* ---------- Optional: card-like content panel to match background (safe & clean) ---------- */
+a:hover{
+  color: var(--accent-hover);
+}
+
+/* =========================================================
+   Buttons: hide GitHub-style header buttons (if present)
+   Cayman often uses .btn in header for repo / downloads.
+   ========================================================= */
+.page-header .btn{
+  display: none !important;
+}
+
+/* =========================================================
+   Code blocks (keep warm)
+   ========================================================= */
+code, pre{
+  color: var(--ink-2);
+}
+
+pre{
+  background: rgba(239, 231, 220, 0.55);
+  border: 1px solid rgba(210, 199, 185, 0.75);
+}
+
+/* =========================================================
+   Optional: soften the main content container so it sits nicely
+   on the stronger background gradient (still warm, not white)
+   ========================================================= */
 .main-content{
-  background: var(--card);
-  border: 1px solid var(--cardBorder);
+  background: rgba(246, 241, 233, 0.62);
+  border: 1px solid rgba(210, 199, 185, 0.65);
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+  box-shadow: 0 12px 34px rgba(27, 26, 23, 0.08);
   padding: 2rem;
-}
-
-/* ---------- Remove Cayman "View on GitHub" button ---------- */
-/* Cayman commonly uses .btn; hide it so any auto-generated GitHub button disappears */
-.page-header .btn,
-.page-header a.btn,
-.page-header .btn.btn-github,
-.page-header a.btn.btn-github{
-  display: none !important;
-}
-
-/* Also hide the default "View on GitHub" line if it appears in some Cayman setups */
-.page-header .project-name + .btn,
-.page-header .project-tagline + .btn{
-  display: none !important;
 }
