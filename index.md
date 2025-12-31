@@ -5,13 +5,13 @@ title: 中文 CV
 
 <script defer src="{{ '/assets/js/scroll-gradient.js?v=1' | relative_url }}"></script>
 
+<div class="header-avatar">
+  <img src="{{ '/assets/images/avatar.png' | relative_url }}" alt="Avatar">
+</div>
+
 <div class="lang-switch">
   <a class="btn btn-lang active" href="{{ '/' | relative_url }}">中文</a>
   <a class="btn btn-lang" href="{{ '/en/' | relative_url }}">English</a>
-</div>
-
-<div class="header-avatar">
-  <img src="{{ '/assets/images/avatar.png' | relative_url }}" alt="Avatar">
 </div>
 
 # 你的名字
