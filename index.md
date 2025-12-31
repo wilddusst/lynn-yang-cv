@@ -3,7 +3,7 @@ layout: default
 title: Your Name
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.scss' | relative_url }}">
 
 # Your Name
 ...
