@@ -1,0 +1,119 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* ========== 可調色票：低飽和、偏亮藍系（不螢光） ========== */
+:root{
+  /* Header gradient colors */
+  --h1:#cfe3ff;   /* very light blue */
+  --h2:#bcd6ff;   /* light blue */
+  --h3:#a8c7fb;   /* soft blue */
+  --h4:#92b7f0;   /* slightly deeper but still soft */
+
+  /* Background gradient colors (near-white beige/gray) */
+  --b1:#fbfaf7;   /* warm off-white */
+  --b2:#f3f2ee;   /* light beige-gray */
+  --b3:#eef2f7;   /* cool near-white gray */
+  --b4:#f7f8fb;   /* airy gray-white */
+
+  /* Scroll driver (0~1) */
+  --s: 0;
+}
+
+/* ========== Background：漸層 + 不平均比例 + (scroll-driven) ========== */
+html, body{
+  min-height: 100%;
+}
+
+body{
+  /* 用 scroll 變數驅動角度與色停點，視覺是「慢慢變」不是跳色 */
+  background:
+    radial-gradient(
+      1200px 700px at calc(15% + (var(--s) * 20%)) calc(10% + (var(--s) * 15%)),
+      rgba(168,199,251,0.18),
+      rgba(168,199,251,0.00) 60%
+    ),
+    linear-gradient(
+      calc(155deg - (var(--s) * 25deg)),
+      var(--b1) 0%,
+      var(--b2) 22%,
+      var(--b3) 63%,
+      var(--b4) 100%
+    );
+  background-attachment: fixed;
+}
+
+/* ========== Header：漸層 + 柔光紋理（不花）+ 不平均比例 + (scroll-driven) ========== */
+.page-header{
+  position: relative;
+
+  /* 主漸層：不平均色停點 + 角度跟著滾動微變 */
+  background-image:
+    linear-gradient(
+      calc(135deg + (var(--s) * 20deg)),
+      var(--h1) 0%,
+      var(--h2) 27%,
+      var(--h3) 58%,
+      var(--h4) 100%
+    ) !important;
+
+  /* 讓原 theme 不干擾 */
+  background-color: transparent !important;
+  overflow: hidden;
+}
+
+/* 柔光紋理：不花、很淡、只讓色塊更有質感 */
+.page-header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+
+  /* 兩層非常淡的紋理：一層柔光暈、一層超淡細雜訊感（用 repeating-linear 做得很克制） */
+  background:
+    radial-gradient(
+      900px 500px at calc(20% + (var(--s) * 35%)) calc(20% + (var(--s) * 10%)),
+      rgba(255,255,255,0.55),
+      rgba(255,255,255,0.0) 60%
+    ),
+    repeating-linear-gradient(
+      115deg,
+      rgba(255,255,255,0.10) 0px,
+      rgba(255,255,255,0.10) 2px,
+      rgba(255,255,255,0.00) 8px,
+      rgba(255,255,255,0.00) 14px
+    );
+
+  mix-blend-mode: soft-light;
+  opacity: 0.40;
+}
+
+/* 再加一層「非常淡的陰影」讓 header 跟背景有分界 */
+.page-header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  box-shadow: inset 0 -1px 0 rgba(15, 23, 42, 0.08);
+}
+
+/* Header 文字：跟著新配色，保持清爽對比 */
+.project-name{
+  color: rgba(15,23,42,0.88) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.55);
+}
+
+.project-tagline{
+  color: rgba(15,23,42,0.68) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.40);
+}
+
+/* 讓主內容卡片感更舒服（可選，但跟背景更搭） */
+.main-content{
+  background: rgba(255,255,255,0.62);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+  padding: 2rem;
+}
