@@ -1,1 +1,23 @@
+/* ===== Header 大色塊 ===== */
+.page-header {
+  background-color: #0f172a !important;
+  background-image: none !important;
+}
 
+/* ===== 標題文字 ===== */
+.project-name {
+  color: #f8fafc !important;
+}
+
+.project-tagline {
+  color: #cbd5f5 !important;
+}
+
+/* ===== 連結顏色 ===== */
+a {
+  color: #2563eb;
+}
+
+a:hover {
+  color: #1d4ed8;
+}
