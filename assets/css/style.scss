@@ -8,14 +8,14 @@
    ========================================================= */
 :root{
   /* Warm “near-black” + warm grays */
-  --ink: #1b1a17;        /* warm near-black */
-  --ink-2: #2a2722;      /* warm charcoal */
-  --muted: #5b554d;      /* warm gray for secondary text */
-  --muted-2: #746d64;    /* lighter warm gray */
-  --paper: #f6f1e9;      /* warm near-white (not pure) */
-  --paper-2: #efe7dc;    /* slightly deeper warm */
-  --paper-3: #e6dccf;    /* warm beige-gray */
-  --line: #d2c7b9;       /* warm divider line */
+  --ink: #484540;       
+  --ink-2: #181715;    
+  --muted: #78736c;    
+  --muted-2: #a8a197; 
+  --paper: #f6f1e9; 
+  --paper-2: #efe7dc; 
+  --paper-3: #e6dccf;
+  --line: #484540;
 
   /* Accent (subtle, warm, NOT green, not neon) */
   --accent: #8b6f47;     /* warm taupe/bronze */
@@ -86,8 +86,8 @@ body{
    Typography: titles, taglines, content text (warm grayscale)
    ========================================================= */
 .project-name{
-  color: rgba(27, 26, 23, 0.92) !important;
-  text-shadow: 0 1px 0 rgba(246, 241, 233, 0.55);
+  color: rgba(253, 252, 251, 0.8) !important;
+  text-shadow: 0 1px 0 rgba(108, 103, 97, 0.95);
 }
 
 .project-tagline{
