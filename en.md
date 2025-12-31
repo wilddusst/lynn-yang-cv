@@ -6,6 +6,8 @@ permalink: /en/
 
 <script defer src="{{ '/assets/js/scroll-gradient.js?v=1' | relative_url }}"></script>
 
+<script defer src="{{ '/assets/js/no-open-avatar.js?v=1' | relative_url }}"></script>
+
 <div class="lang-switch">
   <a class="btn btn-lang" href="{{ '/' | relative_url }}">中文</a>
   <a class="btn btn-lang active" href="{{ '/en/' | relative_url }}">English</a>
