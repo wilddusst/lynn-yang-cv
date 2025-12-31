@@ -21,3 +21,18 @@ a {
 a:hover {
   color: #1d4ed8;
 }
+
+/* 內容區文字 */
+.main-content {
+  color: #1f2937;
+}
+
+/* 背景 */
+body {
+  background-color: #ffffff;
+}
+
+/* 分隔線 */
+hr {
+  border-color: #e5e7eb;
+}
