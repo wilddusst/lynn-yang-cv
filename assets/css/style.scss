@@ -257,3 +257,10 @@ pre{
     font-size: 1.05rem;
   }
 }
+
+/* Don't allow open/drag/select */
+.header-avatar.no-open img{
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
