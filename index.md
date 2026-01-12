@@ -124,7 +124,7 @@ title: 中文 CV
 
 ---
 
-## 語文能力 Language Proficiency
+## 語文能力
 **英文**：TOEIC 870
 
 **日文**：以JLPT N3為目標備考中
